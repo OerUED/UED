@@ -13,7 +13,11 @@ var cssDst = `${staticBase}css`;
 
 
 gulp.task('build-css', function() {
-    return gulp.src([cssSrc + '/*.less'])
+    return gulp.src([cssSrc + '/index.less'])
+        .pipe(rem({
+            width: 640,
+            unit: 'pm'
+        }))
         .pipe(plugins.less())
         .pipe(plugins.autoprefixer({
             browsers: [
@@ -26,10 +30,7 @@ gulp.task('build-css', function() {
                 'android >= 2.3'
             ]
         }))
-    .pipe(rem({
-        width: 640,
-        unit: 'pm'
-    }))
+    
     .pipe(plugins.cssmin())
     .pipe(gulp.dest(cssDst))
     .pipe(reload({

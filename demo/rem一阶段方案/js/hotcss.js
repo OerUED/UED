@@ -2,6 +2,8 @@
 
 	'use strict';
 
+
+
 	//给hotcss开辟个命名空间，别问我为什么，我要给你准备你会用到的方法，免得用到的时候还要自己写。
 	var hotcss = {};
 
@@ -14,9 +16,22 @@
             maxWidth = 540,
             designWidth = 0;
 
+        //如果是小米手机直接放弃高清方案
+        if(navigator.userAgent.match(/[\s|;]MI\b/i)){
+            if(!hotcssEl){
+                hotcssEl = document.createElement('meta');
+                hotcssEl.setAttribute('name','viewport');
+                document.querySelector('head').appendChild(hotcssEl);
+            }
+
+            hotcssEl.setAttribute('content','content="initial-dpr=1"');
+        }  
+
         //允许通过自定义name为hotcss的meta头，通过initial-dpr来强制定义页面缩放
         if (hotcssEl) {
             var hotcssCon = hotcssEl.getAttribute('content');
+            
+
             if (hotcssCon) {
                 var initialDprMatch = hotcssCon.match(/initial\-dpr=([\d\.]+)/);
                 if (initialDprMatch) {
@@ -89,7 +104,6 @@
 		if( !innerWidth ){ return false;}
 
 		document.documentElement.style.fontSize = ( innerWidth*20/320 ) + 'px';
-
 	};
 
 	hotcss.mresize(); 
