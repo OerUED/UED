@@ -1,0 +1,26 @@
+{
+    "name": "app",
+    "version": "0.0.1",
+    "description": "",
+    "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-autoprefixer": "^2.3.1",
+        "gulp-cssmin": "^0.1.7",
+        "gulp-less": "^3.0.3",
+        "gulp-load-plugins": "^0.10.0",
+        "gulp-watch": "^4.3.4",
+        "gulp-rem": "*",
+        "browser-sync": "^2.9.11"
+    },
+    "scripts": {
+        "deploy": "gulp build-all",
+        "dev": "gulp watch",
+
+        "server": "gulp server"
+    },
+    "repository": "",
+    "author": "maat",
+    "dependencies": {
+
+    }
+}
