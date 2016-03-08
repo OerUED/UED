@@ -19,23 +19,11 @@ gulp.task('build-css', function() {
             unit: 'pm'
         }))
         .pipe(plugins.less())
-        .pipe(plugins.autoprefixer({
-            browsers: [
-                'ie >= 9',
-                'ff >= 10',
-                'chrome >= 20',
-                'safari >= 7',
-                'opera >= 10',
-                'ios >= 7',
-                'android >= 2.3'
-            ]
-        }))
-    
-    .pipe(plugins.cssmin())
-    .pipe(gulp.dest(cssDst))
-    .pipe(reload({
-        stream: true
-    }));
+        .pipe(plugins.autoprefixer())
+        .pipe(gulp.dest(cssDst))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
 gulp.task('server', ['build-css'], function() {

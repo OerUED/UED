@@ -1,0 +1,63 @@
+.px2px(@name, @px){
+    @{name}: round(@px / 2) * 1px;
+    [data-dpr="1.5"] & {
+        @{name}: round(@px * 1.5 / 2) * 1px;
+    }
+    [data-dpr="2"] & {
+        @{name}: @px * 1px;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+        @{name}: round(@px * 2.5 / 2) * 1px;
+    }
+    // for 小米note
+    [data-dpr="2.75"] & {
+        @{name}: round(@px * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+        @{name}: round(@px / 2 * 3) * 1px
+    }
+    [data-dpr="3.5"] & {
+        @{name}: round(@px * 3.5 / 2) * 1px;
+    }
+
+    [data-dpr="3.75"] & {
+        @{name}: round(@px * 3.75 / 2) * 1px;
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+        @{name}: @px * 2px;
+    }
+}
+
+.padding(@px1,@px2,@px3,@px4){
+    padding: round(@px1 / 2) * 1px round(@px2 / 2) * 1px  round(@px3 / 2) * 1px  round(@px4 / 2) * 1px;
+    [data-dpr="1.5"] & {
+        padding: round(@px1 * 1.5 / 2) * 1px round(@px2 * 1.5 / 2) * 1px  round(@px3 * 1.5 / 2) * 1px round(@px4 * 1.5 / 2) * 1px;
+    }
+    [data-dpr="2"] & {
+        padding: @px1 @px2 @px3 @px4;
+    }
+    // for mx3
+    [data-dpr="2.5"] & {
+        padding: round(@px1 * 2.5 / 2) * 1px round(@px2 * 2.5 / 2) * 1px round(@px3 * 2.5 / 2) * 1px round(@px4 * 2.5 / 2) * 1px;
+    }
+    // for 小米note
+    [data-dpr="2.75"] & {
+        padding: round(@px1 * 2.75 / 2) * 1px round(@px2 * 2.75 / 2) * 1px round(@px3 * 2.75 / 2) * 1px round(@px4 * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+        padding: round(@px1 / 2 * 3) * 1px round(@px2 / 2 * 3) * 1px round(@px3 / 2 * 3) * 1px round(@px4 / 2 * 3) * 1px;
+    }
+    [data-dpr="3.5"] & {
+        padding: round(@px1 * 3.5 / 2) * 1px round(@px2 * 3.5 / 2) * 1px round(@px3 * 3.5 / 2) * 1px round(@px4 * 3.5 / 2) * 1px;
+    }
+
+    [data-dpr="3.75"] & {
+        padding: round(@px1 * 3.75 / 2) * 1px round(@px2 * 3.75 / 2) * 1px round(@px3 * 3.75 / 2) * 1px round(@px4 * 3.75 / 2) * 1px;
+    }
+    // for 三星note4
+    [data-dpr="4"] & {
+        padding: @px1 * 2px @px2 * 2px @px3 * 2px @px4 * 2px;
+    }
+}
